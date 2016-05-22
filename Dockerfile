@@ -1,4 +1,4 @@
-FROM redis:3.0-alpine
+FROM redis:3.2-alpine
 
 MAINTAINER shufo
 
