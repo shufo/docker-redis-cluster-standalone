@@ -1,0 +1,21 @@
+version: '2'
+services:
+  redis-cluster:
+    image: 'shufo/redis-cluster-standalone'
+    container_name: redis_cluster
+    hostname: redis_cluster
+    environment:
+      IP: '127.0.0.1'
+      M1_PORT: 7000
+      M2_PORT: 7001
+      M3_PORT: 7002
+      R1_PORT: 7003
+      R2_PORT: 7004
+      R3_PORT: 7005
+    ports:
+      - '7000:7000'
+      - '7001:7001'
+      - '7002:7002'
+      - '7003:7003'
+      - '7004:7004'
+      - '7005:7005'
