@@ -12,6 +12,7 @@ OPTIONS="${OPTIONS} --cluster-config-file nodes.conf"
 OPTIONS="${OPTIONS} --cluster-node-timeout 5000"
 OPTIONS="${OPTIONS} --appendonly yes"
 OPTIONS="${OPTIONS} --daemonize yes"
+OPTIONS="${OPTIONS} --protected-mode no"
 
 mkdir /data/m1 && /usr/local/bin/redis-server --port ${M1_PORT} --dir /data/m1 ${OPTIONS}  
 mkdir /data/m2 && /usr/local/bin/redis-server --port ${M2_PORT} --dir /data/m2 ${OPTIONS} 
