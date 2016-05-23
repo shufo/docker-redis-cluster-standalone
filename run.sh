@@ -20,7 +20,7 @@ mkdir /data/r1 && /usr/local/bin/redis-server --port ${R1_PORT} --dir /data/r1 $
 mkdir /data/r2 && /usr/local/bin/redis-server --port ${R2_PORT} --dir /data/r2 ${OPTIONS} 
 mkdir /data/r3 && /usr/local/bin/redis-server --port ${R3_PORT} --dir /data/r3 ${OPTIONS} 
 
-IP=${IP:-127.0.0.1}
+IP=${IP:-$(hostname -i)}
 LOG_FILE=/redis-cluster.log
 
 printf 'yes' | ruby /usr/bin/redis-trib.rb create --replicas 1 ${IP}:${M1_PORT} ${IP}:${M2_PORT} ${IP}:${M3_PORT} ${IP}:${R1_PORT} ${IP}:${R2_PORT} ${IP}:${R3_PORT} >> ${LOG_FILE} 
