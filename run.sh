@@ -24,5 +24,5 @@ mkdir /data/r3 && /usr/local/bin/redis-server --port ${R3_PORT} --dir /data/r3 $
 IP=${IP:-127.0.0.1}
 LOG_FILE=/redis-cluster.log
 
-printf 'yes' | /usr/bin/redis-trib.rb create --replicas 1 ${IP}:${M1_PORT} ${IP}:${M2_PORT} ${IP}:${M3_PORT} ${IP}:${R1_PORT} ${IP}:${R2_PORT} ${IP}:${R3_PORT} >> ${LOG_FILE} 
+printf 'yes' | ruby /usr/bin/redis-trib.rb create --replicas 1 ${IP}:${M1_PORT} ${IP}:${M2_PORT} ${IP}:${M3_PORT} ${IP}:${R1_PORT} ${IP}:${R2_PORT} ${IP}:${R3_PORT} >> ${LOG_FILE} 
 tail -f ${LOG_FILE}
