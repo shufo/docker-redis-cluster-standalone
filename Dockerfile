@@ -13,6 +13,20 @@ COPY redis-trib.rb /usr/bin/redis-trib.rb
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
+ENV M1_PORT=$M1_PORT \
+    M2_PORT=$M2_PORT \
+    M3_PORT=$M3_PORT \
+    R1_PORT=$R1_PORT \
+    R2_PORT=$R2_PORT \
+    R3_PORT=$R3_PORT
+
+EXPOSE $M1_PORT \
+       $M2_PORT \
+       $M3_PORT \
+       $R1_PORT \
+       $R2_PORT \
+       $R3_PORT
+
 VOLUME ["/data"]
 
 CMD ["/run.sh"]
